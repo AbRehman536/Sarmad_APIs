@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sarmad_apis/services/auth.dart';
+import 'package:sarmad_apis/views/get_all_task.dart';
 
 import '../provider/user_token_provider.dart';
 
@@ -42,7 +43,10 @@ class _LoginState extends State<Login> {
                         showDialog(context: context, builder: (BuildContext context) {
                           return AlertDialog(
                             title: Text(value.user!.name.toString()),
-                            content: Text(value.user!.email.toString()),);
+                            content: Text(value.user!.email.toString()),
+                          actions: [TextButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> GetAllTask()));
+                          }, child: Text("Okay"))],);
                         }, );
                       });
                 });
