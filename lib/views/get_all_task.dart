@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:sarmad_apis/models/task.dart';
 import 'package:sarmad_apis/models/taskListing.dart' hide Task;
 import 'package:sarmad_apis/services/task.dart';
+import 'package:sarmad_apis/views/filter_task.dart';
 import 'package:sarmad_apis/views/get_completed_task.dart';
 import 'package:sarmad_apis/views/get_incompleted_task.dart';
+import 'package:sarmad_apis/views/search_task.dart';
 import 'package:sarmad_apis/views/update_task.dart';
 
 import '../provider/user_token_provider.dart';
@@ -25,6 +27,12 @@ class GetAllTask extends StatelessWidget {
           IconButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> GetInCompletedTask()));
           }, icon: Icon(Icons.incomplete_circle)),
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchTask()));
+          }, icon: Icon(Icons.search)),
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> FilterTask()));
+          }, icon: Icon(Icons.filter)),
         ],
       ),
       body: FutureProvider.value(
